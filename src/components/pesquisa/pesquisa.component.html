@@ -1,0 +1,65 @@
+<div>
+  <menu-nav></menu-nav>
+  <h1>Pesquisa</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <table class="table table-bordered table-striped" v-if="list.length > 0">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th class="text-center">Full Name</th>
+            <th class="text-center">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(item, index) in list">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{ item.name }}</td>
+            <td>@mdo</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-12" v-if="list.length == 0">
+        Nem um resultado encontrado
+      </div>
+
+    </div>
+  </div>
+
+  <paginate v-if="list.length > 0" :callback="search" :component="paginate" :arrpagesize="[10,20,30,40,50,100]"></paginate>
+
+  <bootstrap-modal ref="theModal" :need-header="true" :need-footer="true" :size="modalSize" :opened="myOpenFunc">
+    <div slot="title">
+      Your title here
+    </div>
+    <div slot="body">
+      Modal 1
+    </div>
+    <div slot="footer">
+      <button @click="cancelModal('theModal')">Cancelar</button>
+      <button @click="closeModal('theModal')">OK</button>
+    </div>
+  </bootstrap-modal>
+
+  <bootstrap-modal ref="theModal2" :need-header="true" :need-footer="true" :size="modalSize" :opened="myOpenFunc">
+    <div slot="title">
+      Your title here
+    </div>
+    <div slot="body">
+      Modal 2
+    </div>
+    <div slot="footer">
+      <button @click="cancelModal('theModal2')">Cancelar</button>
+      <button @click="closeModal('theModal2')">OK</button>
+    </div>
+  </bootstrap-modal>
+
+  <button @click="openModal('theModal')">Show</button>
+  <button @click="openModal('theModal2')">Show</button>
+
+</div>
