@@ -1,0 +1,110 @@
+@import '../../assets/scss/variables';
+
+#home-component {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    text-align: center;
+
+    .ant-layout-content {
+        background-color: black;
+        height: calc(100vh - 95px);
+    }
+
+    .container-spin {
+        left: 0 !important;
+        justify-content: center;
+        position: absolute;
+        height: 100%;
+        background: #dad5d54a;
+        width: 100%;
+        z-index: 999;
+
+        .ant-spin {
+            position: relative !important;
+            top: 45%;
+            left: 0;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    
+        .ant-spin-nested-loading {
+            top: 40%;
+        }
+    }
+
+    .button-start {
+        top: -16px;
+        width: 260px;
+        background-color: transparent;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        overflow: hidden;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+
+        transform-origin: left top;
+        transform: scale(0.1);
+        animation: scale 1500ms ease-in-out forwards;
+
+        span {
+            top: -5px;
+            position: relative;
+        }
+    }
+
+    video {
+        width: 99%;
+        padding: 30px 0px 10px;
+    }
+
+    @keyframes scale {
+        to {
+            transform: scale(1);
+        }
+    }
+
+}
+
+.section__logo {
+  width: 30rem;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: $break-extra-small)  {
+    width: 18rem;
+  }
+}
+
+@media screen and (max-height: 400px) {
+    #home-component video {
+        padding: 0px 0px 5px;
+    }
+
+    .button-start {
+        top: -67px !important;
+    }
+
+    .ant-layout-header {
+        height: 45px !important;
+    }
+}
+
+@media screen and (max-width: $break-extra-small) {
+
+    .button-start {
+        top: 0 !important;
+    }
+
+    .container-header {
+        max-width: 280px !important;
+        margin-top: 3% !important;
+
+        .container-title {
+            border: none !important;
+            display: initial;
+        }
+    }
+}

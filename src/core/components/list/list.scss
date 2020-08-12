@@ -1,0 +1,93 @@
+#list-component {
+    height: calc(100vh - 95px);
+    overflow: auto;
+    background-color: #f0f2f5;
+
+    .container-spin {
+        text-align: center;
+        justify-content: center;
+        position: absolute;
+        height: calc(100vh - 95px);
+        background: #dad5d54a;
+        width: 100%;
+        z-index: 999;
+
+        .ant-spin {
+            position: relative !important;
+            top: 45%;
+            left: 0;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    
+        .ant-spin-nested-loading {
+            top: 40%;
+        }
+    }
+
+    .content-body {
+        padding: 15px 50px;
+    
+        .container {
+            background: #fff;
+            width: 100%;
+            padding: 20px;
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .container-cards {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .ant-card {
+                    margin: 5px;
+                    border-radius: 5px;
+                    background-color: rgba(240,242,245,.52);
+                    // height: 100%;
+
+                    img {
+                        width: auto;
+                        margin: 0 auto;
+                        max-height: 202px;
+                    }
+                }
+
+                .ant-card-meta-description {
+                    font-family: cursive;
+                    color: rgba(0,0,0,.45);
+                }
+            }
+
+            .ant-input-affix-wrapper {
+                width: auto;
+            }
+
+            .ant-input-affix-wrapper {
+                border-radius: 5px;
+            }         
+            
+            .ant-pagination {
+                margin: 2rem 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+        
+            .btn-search {
+                margin: 0px 0px 0px 5px;
+                border: 1px solid;
+                width: 35px;
+                background-color: #f5f5f5;
+                border-radius: 17%;
+                cursor: pointer;
+        
+                i {
+                    margin: 9px 9px;
+                }
+            }
+            
+        }
+    }
+}

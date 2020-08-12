@@ -1,38 +1,31 @@
 <template>
   <div id="app">
-    <div v-if="loading" class="backgroud-opacity"></div>
-    <pulse-loader :loading="loading" :color="color" :size="size"></pulse-loader>
-    <router-view></router-view>
+     <a-layout>
+      <a-layout-header>
+        <Menu />
+      </a-layout-header>
+      <a-layout-content>
+        <router-view/>
+      </a-layout-content>
+      <a-layout-footer>
+        &copy; 2020 by <a href="http://marvel.com/" target='_blank'>Marvel</a>
+      </a-layout-footer>
+    </a-layout>
   </div>
 </template>
 
 <script>
+// @ is an alias to /src
+import Menu from '@/core/components/menu/Menu.vue'
 
-import PulseLoader from '../node_modules/vue-spinner/src/PulseLoader.vue'
 export default {
-  name: 'app',
-  data() {
-      return {
-        loading: false,
-        color: '#cc181e',
-        color1: '#5bc0de',
-        size: '45px',
-        margin: '2px',
-        radius: '2px'
-      }
-  },
-  components: { PulseLoader }
+  name: 'App',
+  components: {
+    Menu
+  }
 }
-
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './App.scss';
 </style>

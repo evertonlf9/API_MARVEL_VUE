@@ -1,0 +1,92 @@
+<div id="details-component">
+    <div class="container">
+        <div class="container-spin" v-if="loading">
+            <a-spin tip="Loading..." size="large" />
+        </div>
+
+        <a-card :title="getTitleCard()" hoverable>
+            <img
+              slot="cover"
+              alt="example"
+              :src="getImageCard()"
+            />
+        </a-card>
+
+        <div class="container-description">
+            <a-descriptions title="Mais informações">
+                <a-descriptions-item label="Descrição">
+                    {{data && data.description}}
+                </a-descriptions-item>
+            </a-descriptions>
+
+            <a-descriptions
+                bordered
+                layout="vertical"
+                :column="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }"
+            >
+                <a-descriptions-item label="Personagens" v-if="(data && data.characters && data.characters.items && data.characters.items.length > 0)">
+                    <div v-for="(characters, index) in data.characters.items">
+                        <a @click="handlerClick(characters)" :title="characters.name" tabIndex="0">{{characters.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+                <a-descriptions-item label="Criadores" v-if="(data && data.creators && data.creators.items && data.creators.items.length > 0)">
+                    <div v-for="(creators, index) in data.creators.items">
+                        <a @click="handlerClick(creators)" :title="creators.name" tabIndex="0">{{creators.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+                <a-descriptions-item label="Histórias em quadrinhos" v-if="(data && data.comics && data.comics.items && data.comics.items.length > 0)">
+                    <div v-for="(comics, index) in data.comics.items">
+                        <a @click="handlerClick(comics)" :title="comics.name" tabIndex="0">{{comics.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+                <a-descriptions-item label="Series" v-if="(data && data.series && data.series.items && data.series.items.length > 0)">
+                    <div v-for="(series, index) in data.series.items">
+                        <a @click="handlerClick(series)" :title="series.name" tabIndex="0">{{series.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+                <a-descriptions-item label="Histórias" v-if="(data && data.stories && data.stories.items && data.stories.items.length > 0)">
+                    <div v-for="(stories, index) in data.stories.items">
+                        <a @click="handlerClick(stories)" :title="stories.name" tabIndex="0">{{stories.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+                <a-descriptions-item label="Eventos" v-if="(data && data.events && data.events.items && data.events.items.length > 0)">
+                    <div v-for="(events, index) in data.comics.items">
+                        <a @click="handlerClick(events)" :title="events.name" tabIndex="0">{{events.name}}</a>
+                        <br/>
+                    </div>
+                </a-descriptions-item>
+
+            </a-descriptions>
+        </div>
+
+        <a-row>
+            <a-col :span="24" style="text-align: center;">
+                <img src="../../assets/images/marvel.jpg" style="max-width: 350px"/>
+            </a-col>
+        </a-row>
+
+        <div v-if="(data && data.length === 0)">
+            <a-empty
+                image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                :image-style="{
+                height: '60px',
+                }"
+            >
+                <span slot="description"><a href="#API">Nenhum resultao encontrado</a> </span>
+                <a-button type="primary" @click="handlerClickClearSearch" @keypress="handlerKeyPressClearSearch">
+                    Atualizar a pagina
+                </a-button>
+            </a-empty>
+        </div>
+    </div>
+</div>

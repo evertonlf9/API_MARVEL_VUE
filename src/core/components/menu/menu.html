@@ -1,0 +1,81 @@
+<div id="menu-component">
+    <a-menu
+      theme="dark"
+      mode="horizontal"
+      :style="{ lineHeight: '64px' }"
+    >
+      <a-menu-item key="Home"  v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Home' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="home" />
+        Home
+      </a-menu-item>
+      <a-menu-item key="Characters" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Characters' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="team" />
+        Personagens
+      </a-menu-item>
+      <a-menu-item key="Comics" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Comics' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="read" />
+        Quadrinhos
+      </a-menu-item>
+      <a-menu-item key="Series" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Series' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="read" />
+        Séries
+      </a-menu-item>
+      <a-menu-item key="Creators" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Creators' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="user" />
+        Criadores
+      </a-menu-item>
+      <a-menu-item key="Events" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Events' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+        <a-icon type="calendar" />
+        Eventos
+      </a-menu-item>
+    </a-menu>
+
+    <a-dropdown>
+      <a-button tabindex="0">
+        <a-icon type="menu" />
+      </a-button>
+      <a-menu slot="overlay">
+        <a-menu-item key="Home" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Home' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="home" />
+            Home
+          </a>
+        </a-menu-item>
+        <a-menu-item key="Characters" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Characters' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="team" />
+            Personagens
+          </a>
+        </a-menu-item>
+        <a-menu-item key="Comics" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Comics' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="read" />
+            Quadrinhos
+          </a>
+        </a-menu-item>
+        <a-menu-item key="Series" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Series' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="read" />
+            Séries
+          </a>
+        </a-menu-item>
+        <a-menu-item key="Creators" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Creators' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="user" />
+            Criadores
+          </a>
+        </a-menu-item>
+        <a-menu-item key="Events" v-bind:class="{ 'ant-menu-item-selected': currentPage === 'Events' }" @click="handlerClickNextPage" @keypress="handlerKeyPressNextPage" tabindex="0">
+          <a>
+            <a-icon type="calendar" />
+            Eventos
+          </a>
+        </a-menu-item>
+      </a-menu>
+    </a-dropdown>
+
+    <div class="container-logo">
+        <h2>Welcome to Marvel</h2>
+        <img src='../../../assets/images/logo.png' class="logo"/>
+    </div>
+</div>

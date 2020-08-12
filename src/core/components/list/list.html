@@ -1,0 +1,66 @@
+<div id="list-component">
+    <div class="container-spin" v-if="loading">
+        <a-spin tip="Loading..." size="large" />
+    </div>
+
+    <div class="content-body">
+        <div class="layout-content">
+            <div class="container">
+                <a-input-search placeholder="Pesquisar..." @search="onSearch" v-model="name" :value="name" />
+
+                <div class="btn-search" @click="handlerClickSearch" @keypress="handlerKeyPressSearch" tabIndex="0" aria-label="Pesquisar" role="button">
+                    <a-icon type="search" />
+                </div>
+
+                <div class="btn-search" @click="handlerClickClearSearch" @keypress="handlerKeyPressClearSearch" tabIndex="0" aria-label="Limpar a pesquisa" role="button">
+                <a-icon type="delete" />
+                </div>
+            </div>
+        </div>
+        <div class="layout-content" style="padding: 15px 0;">
+            <div class="container">
+                <div class="container-cards" v-if="(data && data.length > 0)">
+                    <a-card :title="getTitleCard(item)" hoverable style="width: 270px"  v-for="(item, index) in data">
+                        <a slot="extra" @click="handlerClickMore(item)">Mais</a>
+                        <img
+                            slot="cover"
+                            alt="example"
+                            :src="getImageCard(item)"
+                        />
+                        <a-card-meta>
+                            <template slot="description">
+                                {{getDescription(item)}}
+                            </template>
+                        </a-card-meta>
+                    </a-card>
+                </div>
+                <div v-if="(data && data.length > 0)">
+                    <a-pagination
+                        :total="total"
+                        :show-total="(total, range) => `${range[0]}-${range[1]} of ${total} items`"
+                        :page-size="paginate.limit"
+                        :default-current="currenPage"
+                        show-size-changer
+                        @showSizeChange="handleChangeSize"
+                        @change="handleChangePagination"
+                    />
+                </div>
+
+                <div v-if="(data && data.length === 0)">
+                    <a-empty
+                        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                        :image-style="{
+                        height: '60px',
+                        }"
+                    >
+                        <span slot="description"><a href="#API">Nenhum resultao encontrado</a> </span>
+                        <a-button type="primary" @click="handlerClickClearSearch" @keypress="handlerKeyPressClearSearch">
+                            Atualizar a pagina
+                        </a-button>
+                    </a-empty>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

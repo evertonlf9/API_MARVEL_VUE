@@ -1,0 +1,62 @@
+#details-component {
+    width: 100%;
+    height: calc(100vh - 95px);
+    padding: 15px 50px;
+    overflow: auto;  
+}
+    .container {
+        background: #fff;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .container-description {
+            background-color: #f7f8fa;
+            padding: 10px 10px;
+        }
+
+        .ant-card {
+            width: 375px;
+            max-height: 512px;
+
+            .ant-card-body {
+                display: none;
+            }
+
+            img {
+                max-height: 450px;
+            }
+        }
+    }   
+
+    .ant-layout {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .site-layout-content {
+        background: #fff;
+        padding: 24px;
+        height: calc(100vh - 132px);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ant-layout-footer {
+        line-height: 0.8;
+        color: #fff;
+        background-color: #222;
+        text-align: center;
+        padding: 10px 50px;
+    }
+
+    // @media screen and (max-width: $break-extra-small) {
+
+    //     .ant-card img {
+    //         max-height: 202px!important;
+    //     }
+    // }
